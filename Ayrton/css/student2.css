@@ -166,6 +166,10 @@ body {
             color: var(--primary);
         }
 
+        img {
+            border-radius: 30px;
+        }
+
         @media (max-width: 767px) {
             padding: 40px 20px;
         }
