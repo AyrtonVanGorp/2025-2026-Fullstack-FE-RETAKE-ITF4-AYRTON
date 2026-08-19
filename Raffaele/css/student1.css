@@ -1,0 +1,75 @@
+:root {
+    /* Main Theme Colors */
+    --color-parchment: #fdf5e6;
+    --color-wood-dark: #3d2b1f;
+    --color-wood-light: #5d4037;
+    --color-button-main: #8b4513;
+    --color-button-hover: #a67c52;
+
+    /* District Themes */
+    --color-gold-plaza: #daa520;
+    --color-gritty-low: #4a4a4a;
+
+    /* Demographic Colors */
+    --color-human: #a67c52;
+    --color-elf: #2e7d32;
+    --color-other: #7d2e7d;
+
+    /* Sizing */
+    --border-radius: 8px;
+    --bar-height: 20px;
+}
+
+/* Styling for the Demographic Bars */
+.progress-bg {
+    background-color: var(--color-wood-dark);
+    border-radius: var(--border-radius);
+    height: var(--bar-height);
+    width: 100%;
+    margin: 10px 0 20px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-right: 2px solid #fff;
+}
+
+/* Using variables for race colors */
+.human-bar { width: 50%; background-color: var(--color-human); }
+.elf-bar   { width: 20%; background-color: var(--color-elf); }
+.other-bar { width: 30%; background-color: var(--color-other); }
+
+/* The Modals */
+.census-modal {
+    background-color: var(--color-parchment);
+    border: 3px solid var(--color-wood-light);
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--color-wood-dark);
+}
+
+.dnd-btn {
+    background: var(--color-button-main);
+    color: white;
+    padding: 12px 24px;
+    border: 2px solid var(--color-wood-light);
+    margin: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.dnd-btn:hover {
+    background: var(--color-button-hover);
+}
+
+/* District specific themes */
+#modal-low-ward {
+    border-color: var(--color-gritty-low);
+    background-color: #f0e6d2; /* You could make this a variable too! */
+}
+
+#modal-high-plaza {
+    border-color: var(--color-gold-plaza);
+    background-color: #fffaf0;
+}

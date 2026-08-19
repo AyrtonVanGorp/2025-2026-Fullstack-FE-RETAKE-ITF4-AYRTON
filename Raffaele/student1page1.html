@@ -1,0 +1,97 @@
+<!doctype html>
+<!-- Name:Raffaele Scarpa
+    Class:1ITF4
+    R-number:r1103449
+     -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>World Building</title>
+    <meta name="author" content="Raffaele Scarpa"/>
+    <link rel="stylesheet" href="css/student1.css">
+
+</head>
+<body>
+<h1>World building</h1>
+<section>
+    <p>This page will explain more about important cities, demographics, tech and lots more. For now the party has
+        only visited one city and this page will grow the more the story expands.</p>
+</section>
+
+<section id="city">
+    <p>Built upon a foundation of ancient white stone and powered by the relentless flow of the Great River, The City
+        stands as a monument to human and elven ingenuity. In this age of enlightenment, the clatter of horse-drawn
+        carriages competes with the rhythmic hum of massive wooden waterwheels. These "Great Wheels" transfer power
+        through a complex web of brass rods and oscillating pulleys, fueling the workshops of the world’s finest
+        clockmakers and alchemists.</p>
+
+    <p>But for all its gilded beauty, The City is a place of harsh contrasts. Beneath the shadow of the Great
+        Observatory lies a sprawling labyrinth of timber-framed tenements and narrow, fog-heavy alleys. In the upper
+        districts, the elite study the stars and the arts; in the lower wards, the struggle for survival is the only
+        science that matters.</p>
+</section>
+
+<div class="city-controls">
+    <button class="open-modal dnd-btn" data-target="modal-census">City Census</button>
+    <button class="open-modal dnd-btn" data-target="modal-high-plaza">The High Plaza</button>
+    <button class="open-modal dnd-btn" data-target="modal-low-ward">The Low Ward</button>
+</div>
+
+<dialog id="modal-census" class="dnd-modal">
+    <div class="modal-header">
+        <h2>Official City Census</h2>
+        <button class="close-modal">&times;</button>
+    </div>
+    <div class="modal-body">
+        <p class="flavor-text">"By order of the High Council, a count of all souls within the walls."</p>
+
+        <div class="stat-row">
+            <span>Humans (50%)</span>
+            <div class="progress-bg"><div class="progress-fill human-bar"></div></div>
+        </div>
+        <div class="stat-row">
+            <span>Elves (20%)</span>
+            <div class="progress-bg"><div class="progress-fill elf-bar"></div></div>
+        </div>
+        <div class="stat-row">
+            <span>Other Races (30%)</span>
+            <div class="progress-bg"><div class="progress-fill other-bar"></div></div>
+        </div>
+    </div>
+    <button class="close-modal btn-secondary">Close Ledger</button>
+</dialog>
+
+<dialog id="modal-high-plaza" class="dnd-modal">
+    <div class="modal-header">
+        <h2>The High Plaza</h2>
+        <button class="close-modal">&times;</button>
+    </div>
+    <div class="modal-body">
+        <p class="flavor-text">"Where the marble meets the sky and the gears never grind."</p>
+        <p>The crown jewel of <strong>The City</strong>. Home to the wealthy 10%, this district is built of white stone and polished brass. Here, the air is clean, and the streets are lit by alchemical lamps that never flicker.</p>
+        <ul>
+            <li><strong>Residents:</strong> Human Nobility & Elven Scholars</li>
+            <li><strong>Security:</strong> High (Clockwork Sentinels)</li>
+        </ul>
+    </div>
+    <button class="close-modal btn-secondary">Return to Street</button>
+</dialog>
+
+<dialog id="modal-low-ward" class="dnd-modal">
+    <div class="modal-header">
+        <h2>The Low Ward</h2>
+        <button class="close-modal">&times;</button>
+    </div>
+    <div class="modal-body">
+        <p class="flavor-text">"Beneath the shadow of the great wheels, survival is the only law." A labyrinth of timber-framed tenements and narrow alleys. In <strong>The City's</strong> lower wards, the disenfranchised live among rusting pipes and creaking waterwheels. Crime is high, but so is the spirit of innovation.</p>
+        <ul>
+            <li><strong>Residents:</strong> Laborers, Artisans, and the Underworld</li>
+            <li><strong>Security:</strong> Low (Guild-controlled)</li>
+        </ul>
+    </div>
+    <button class="close-modal btn-secondary">Leave the Shadows</button>
+</dialog>
+<script src="js/student1.js" defer></script>
+</body>
+</html>

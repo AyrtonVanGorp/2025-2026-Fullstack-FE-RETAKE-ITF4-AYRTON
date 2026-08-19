@@ -1,0 +1,63 @@
+body{
+    background-color:#f9eb98;
+    color:#e6d3a3;
+    font-family: "Trebuchet MS", serif;
+}
+
+
+
+.hero{
+    padding:60px 20px;
+    background: linear-gradient(90deg, #FFD633, #DBAF1A);;,
+url("images/hero-bg.jpg");
+    background-size:cover;
+    background-position:center;
+}
+
+
+.hero h1{
+    font-size:3rem;
+    color:#725d1b;
+}
+
+
+.hero p{
+    font-style:italic;
+    color: #725d1b;
+}
+
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    color:#d4af37;
+}
+
+
+.event-card{
+    background:#2a2a2a;
+    padding:20px;
+    border-radius:10px;
+    border:1px solid #d4af37;
+    transition:transform 0.2s;
+}
+
+
+.event-card:hover{
+    transform:scale(1.05);
+}
+
+
+.carousel img{
+    height:500px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+
+.footer{
+    background:#111;
+    padding:20px;
+    border-top:1px solid #d4af37;
+}
+

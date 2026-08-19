@@ -1,0 +1,166 @@
+@import "bootstrap.min.css";
+@import "global_vars.css";
+/* Import student CSS files here */
+@import "../../Raffaele/css/student1.css";
+@import "../../Ayrton/css/student2.css";
+@import "../../Eufrânio/css/student3.css";
+@import "../../lyonn/css/student4.css";
+
+body{
+    font-family:'Cinzel', serif;
+    background: radial-gradient(circle at top,#2a2a2a,#0f0f0f);
+    color:var(--primary);
+    margin:0;
+}
+
+.navbar{
+    border-bottom:2px solid var(--secondary);
+}
+
+.navbar-brand{
+    font-family:'MedievalSharp', cursive;
+    font-size:26px;
+    color:var(--primary);
+}
+
+.nav-link{
+    color:var(--primary) !important;
+    transition:0.2s;
+}
+
+.nav-link:hover{
+    color:var(--secondary) !important;
+}
+
+/* =========================
+   POPOVER MENU
+   ========================= */
+
+/* Navbar container */
+.container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* Menu horizontaal */
+.navbar-menu{
+    display:flex;
+    flex:1;
+    justify-content:space-around; /* verdeelt de 3 categorieën gelijkmatig */
+}
+
+/* Maak de hele nav-item hoverbaar */
+.nav-item{
+    position: relative;
+    flex: 1;              /* evenredige breedte */
+    text-align: center;
+}
+
+/* Zorg dat de link de hele nav-item ruimte inneemt */
+.nav-link{
+    display: block;        /* hele kolom hoverbaar */
+    width: 100%;
+    padding: 12px 0;       /* ruimte boven en onder voor gemakkelijk hoveren */
+    color: #f9eb98;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-link:hover{
+    color: #DBAF1A;
+}
+
+/* =========================
+   POPOVER MENU FIX
+   ========================= */
+
+.popover-menu{
+    position:absolute;
+    top:40px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#1b1b1b;
+    border:1px solid #DBAF1A;
+    border-radius:6px;
+    padding:10px 0;
+    min-width:180px;
+    display:none;
+    flex-direction:column;
+    box-shadow:0 10px 20px rgba(0,0,0,0.6);
+    z-index:999;
+}
+
+.popover-menu a{
+    color:#f9eb98;
+    text-decoration:none;
+    padding:8px 16px;
+    display:block;
+    transition:0.2s;
+}
+
+.popover-menu a:hover{
+    background:#DBAF1A;
+    color:#111;
+}
+
+/* Popover menu blijft zichtbaar zolang nav-item of popover hover */
+.nav-item:hover .popover-menu,
+.nav-item .popover-menu:hover{
+    display: flex;
+}
+
+section{
+    padding:70px 20px;
+    text-align:center;
+}
+
+section h1{
+    font-family:'MedievalSharp', cursive;
+    color:var(--secondary);
+    margin-bottom:20px;
+}
+
+.lead{
+    max-width:800px;
+    margin:auto;
+    opacity:0.9;
+}
+
+.card{
+    background:linear-gradient(145deg,#1f1f1f,#121212);
+    border:1px solid var(--secondary);
+    border-radius:10px;
+    color:var(--primary);
+    transition:0.25s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 25px rgba(0,0,0,0.8);
+    border-color:var(--primary);
+}
+
+.card-title{
+    color:var(--secondary);
+    font-weight:600;
+}
+
+.card-text{
+    opacity:0.9;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+footer{
+    border-top:1px solid var(--secondary);
+    background:#0f0f0f;
+    color:var(--primary);
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+}

@@ -1,0 +1,81 @@
+:root {
+    --primary: #f9eb98;
+    --secondary: #DBAF1A;
+    --dark: #1b1b1b;
+}
+
+body {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    background: radial-gradient(circle at top, #2a2a2a, #0f0f0f);
+    color: var(--primary);
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px;
+    border-bottom: 2px solid var(--secondary);
+}
+
+header h1 {
+    font-family: 'Mason Serif', cursive;
+    font-size: 35px;
+    letter-spacing: 2px;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.card-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 40px;
+}
+
+.card {
+    width: 18rem;
+    background-color: rgba(27, 27, 27, 0.8);
+    border: 2px solid var(--primary);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.card-title {
+    font-family: 'MedievalSharp', cursive;
+    color: var(--primary);
+    border-bottom: 1px solid rgba(219, 175, 26, 0.3);
+    padding-bottom: 10px;
+}
+
+.card-text {
+    color: var(--primary);
+    font-size: 0.9rem;
+}
+
+
+.btn-primary {
+    background-color: var(--secondary);
+    border: none;
+    color: var(--dark);
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    border-radius: 0;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary);
+    color: #000;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--primary);
+    margin-top: 40px;
+    font-size: 14px;
+}

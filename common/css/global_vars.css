@@ -1,0 +1,8 @@
+ /* Global CSS variabels + overwrite Bootstrap variabels comes here */
+
+ :root {
+  --primary:#f9eb98;
+  --secondary:#DBAF1A;
+  --dark:#121212;
+  --card-bg:#1e1e1e;
+ }
