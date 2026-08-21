@@ -10,5 +10,5 @@
 | student4 | [Lyonn](r1034519@student.thomasmore.be)                  | 1ITF4   | [lyonnnaldian](https://github.com/lyonnnaldian)     |
 
 - **GitHub Repo**: [2025-2026-Fullstack-FE-RETAKE-ITF4-AYRTON](https://github.com/AyrtonVanGorp/2025-2026-Fullstack-FE-RETAKE-ITF4-AYRTON)
-- **Netlify Hosting**: [Link](https://spiffy-treacle-a3d740.netlify.app/)
+- **Netlify Hosting**: [The Chaotic Four Website](https://splendid-toffee-b8c470.netlify.app/)
 
