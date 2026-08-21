@@ -3,12 +3,12 @@
     Class: 1ITF04
     R-number: r1056967
 -->
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="author" content="Ayrton Van Gorp">
     <meta name="description" content="Information about the player characters in the Dungeons & Dragons campaign">
 
@@ -71,11 +71,9 @@
             Dungeons & Dragons
         </a>
     </h1>
-
     <p>Character Overview</p>
 </header>
-<!-- Navigation -->
-<nav>
+<nav aria-label="Main navigation">
     <div class="navbar-menu">
         <div class="nav-item">
             <a class="nav-link">Guide</a>
@@ -84,8 +82,6 @@
                 <a href="../lyonn/student4page1.html">Mechanics</a>
             </div>
         </div>
-
-
         <div class="nav-item">
             <a class="nav-link">World</a>
             <div class="popover-menu">
@@ -111,8 +107,13 @@
             Here you can view information about the player characters.
             Choose a character from the dropdown or view all characters at once.
         </p>
-        <img src="Images/Cloaked_Figure.jpg" alt="Hooded Figure standing in a dungeon">
+        <img
+                src="Images/Cloaked_Figure.jpg"
+                alt="Hooded Figure standing in a dungeon"
+        >
     </section>
+
+    <!-- Character selector -->
     <section
             class="character-selector container"
             aria-label="Character selection"
@@ -124,285 +125,310 @@
                 id="character-select"
                 class="form-select"
         >
-            <option value="all">All characters</option>
-            <option value="arannis">Arannis Moonshadow</option>
-            <option value="lyra">Lyra Stormwind</option>
-            <option value="theron">Theron Ironhand</option>
+            <option value="all">
+                All characters
+            </option>
         </select>
     </section>
+
+    <!-- Characters loaded by JavaScript -->
     <section
             class="container"
             id="characters"
             aria-label="Player characters"
     >
-        <article
-                class="character card"
-                data-character="arannis"
-        >
+    </section>
+
+    <!-- Create character -->
+    <section
+            class="container"
+            aria-labelledby="create-character-title"
+    >
+        <div class="card">
             <div class="card-body">
-                <h2>Arannis Moonshadow</h2>
-                <div class="row g-4">
-                    <div class="col-12 col-lg-6">
-                        <h3>Character Information</h3>
-                        <table class="character-table">
-                            <tr>
-                                <th>Name</th>
-                                <td>Arannis Moonshadow</td>
-                            </tr>
-                            <tr>
-                                <th>Race</th>
-                                <td>High Elf</td>
-                            </tr>
-                            <tr>
-                                <th>Class</th>
-                                <td>Wizard</td>
-                            </tr>
-                            <tr>
-                                <th>Level</th>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <th>Background</th>
-                                <td>Sage</td>
-                            </tr>
-                            <tr>
-                                <th>Alignment</th>
-                                <td>Neutral Good</td>
-                            </tr>
-                        </table>
+                <h2 id="create-character-title">
+                    Create Your Own Adventurer
+                </h2>
+                <p>
+                    Create a new character and add them to the campaign.
+                </p>
+                <form id="character-form">
+                    <div class="row g-4">
+                        <div class="col-12 col-lg-6">
+                            <h3>Character Information</h3>
+                            <div class="mb-3">
+                                <label
+                                        for="character-name"
+                                        class="form-label"
+                                >
+                                    Name
+                                </label>
+                                <input
+                                        type="text"
+                                        id="character-name"
+                                        name="name"
+                                        class="form-control"
+                                        required
+                                >
+                            </div>
+                            <div class="mb-3">
+                                <label
+                                        for="character-race"
+                                        class="form-label"
+                                >
+                                    Race
+                                </label>
+                                <input
+                                        type="text"
+                                        id="character-race"
+                                        name="race"
+                                        class="form-control"
+                                        required
+                                >
+                            </div>
+                            <div class="mb-3">
+                                <label
+                                        for="character-class"
+                                        class="form-label"
+                                >
+                                    Class
+                                </label>
+                                <input
+                                        type="text"
+                                        id="character-class"
+                                        name="class"
+                                        class="form-control"
+                                        required
+                                >
+                            </div>
+                            <div class="mb-3">
+                                <label
+                                        for="character-level"
+                                        class="form-label"
+                                >
+                                    Level
+                                </label>
+                                <input
+                                        type="number"
+                                        id="character-level"
+                                        name="level"
+                                        class="form-control"
+                                        min="1"
+                                        required
+                                >
+                            </div>
+                            <div class="mb-3">
+                                <label
+                                        for="character-alignment"
+                                        class="form-label"
+                                >
+                                    Alignment
+                                </label>
+                                <input
+                                        type="text"
+                                        id="character-alignment"
+                                        name="alignment"
+                                        class="form-control"
+                                >
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <h3>Adventure Information</h3>
+                            <div class="mb-3">
+                                <label
+                                        for="character-equipment"
+                                        class="form-label"
+                                >
+                                    Equipment
+                                </label>
+                                <textarea
+                                        id="character-equipment"
+                                        name="equipment"
+                                        class="form-control"
+                                        rows="4"
+                                ></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label
+                                        for="character-backstory"
+                                        class="form-label"
+                                >
+                                    Backstory
+                                </label>
+                                <textarea
+                                        id="character-backstory"
+                                        name="backstory"
+                                        class="form-control"
+                                        rows="6"
+                                ></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <h3>Ability Scores</h3>
+                            <div class="row g-3">
+                                <div class="col-6 col-md-4 col-lg-2">
+                                    <label
+                                            for="strength"
+                                            class="form-label"
+                                    >
+                                        Strength
+                                    </label>
+                                    <input
+                                            type="number"
+                                            id="strength"
+                                            name="strength"
+                                            class="form-control"
+                                            min="1"
+                                            required
+                                    >
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-2">
+                                    <label
+                                            for="dexterity"
+                                            class="form-label"
+                                    >
+                                        Dexterity
+                                    </label>
+                                    <input
+                                            type="number"
+                                            id="dexterity"
+                                            name="dexterity"
+                                            class="form-control"
+                                            min="1"
+                                            required
+                                    >
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-2">
+                                    <label
+                                            for="constitution"
+                                            class="form-label"
+                                    >
+                                        Constitution
+                                    </label>
+                                    <input
+                                            type="number"
+                                            id="constitution"
+                                            name="constitution"
+                                            class="form-control"
+                                            min="1"
+                                            required
+                                    >
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-2">
+                                    <label
+                                            for="intelligence"
+                                            class="form-label"
+                                    >
+                                        Intelligence
+                                    </label>
+                                    <input
+                                            type="number"
+                                            id="intelligence"
+                                            name="intelligence"
+                                            class="form-control"
+                                            min="1"
+                                            required
+                                    >
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-2">
+                                    <label
+                                            for="wisdom"
+                                            class="form-label"
+                                    >
+                                        Wisdom
+                                    </label>
+                                    <input
+                                            type="number"
+                                            id="wisdom"
+                                            name="wisdom"
+                                            class="form-control"
+                                            min="1"
+                                            required
+                                    >
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-2">
+                                    <label
+                                            for="charisma"
+                                            class="form-label"
+                                    >
+                                        Charisma
+                                    </label>
+                                    <input
+                                            type="number"
+                                            id="charisma"
+                                            name="charisma"
+                                            class="form-control"
+                                            min="1"
+                                            required
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <h3>Additional Stats</h3>
+                            <div class="row g-3">
+                                <div class="col-12 col-md-4">
+                                    <label
+                                            for="perception"
+                                            class="form-label"
+                                    >
+                                        Perception
+                                    </label>
+                                    <input
+                                            type="number"
+                                            id="perception"
+                                            name="perception"
+                                            class="form-control"
+                                            min="1"
+                                            required
+                                    >
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label
+                                            for="armor-class"
+                                            class="form-label"
+                                    >
+                                        Armor Class
+                                    </label>
+                                    <input
+                                            type="number"
+                                            id="armor-class"
+                                            name="armor_class"
+                                            class="form-control"
+                                            min="1"
+                                            required
+                                    >
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label
+                                            for="hit-points"
+                                            class="form-label"
+                                    >
+                                        Hit Points
+                                    </label>
+                                    <input
+                                            type="number"
+                                            id="hit-points"
+                                            name="hit_points"
+                                            class="form-control"
+                                            min="1"
+                                            required
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button
+                                    type="submit"
+                                    class="btn"
+                            >
+                                Create Character
+                            </button>
+                        </div>
                     </div>
-                    <div class="col-12 col-lg-6">
-                        <h3>Ability Scores</h3>
-                        <table class="character-table">
-                            <tr>
-                                <th>Strength</th>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <th>Dexterity</th>
-                                <td>14</td>
-                            </tr>
-                            <tr>
-                                <th>Constitution</th>
-                                <td>12</td>
-                            </tr>
-                            <tr>
-                                <th>Intelligence</th>
-                                <td>18</td>
-                            </tr>
-                            <tr>
-                                <th>Wisdom</th>
-                                <td>13</td>
-                            </tr>
-                            <tr>
-                                <th>Charisma</th>
-                                <td>11</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <h3>Equipment</h3>
-                        <ul>
-                            <li>Spellbook</li>
-                            <li>Quarterstaff</li>
-                            <li>Component pouch</li>
-                            <li>Explorer's pack</li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <h3>Backstory</h3>
-                        <p>
-                            Arannis Moonshadow grew up in an ancient elven city devoted
-                            to knowledge and arcane study. From a young age he showed a
-                            strong talent for magic and spent most of his life studying
-                            forgotten spells and magical artifacts.
-                        </p>
-                        <p>
-                            Now he travels the world in search of lost knowledge,
-                            ancient ruins, and powerful magic that could change the
-                            fate of entire kingdoms.
-                        </p>
-                    </div>
-                </div>
+                </form>
             </div>
-        </article>
-        <article
-                class="character card"
-                data-character="lyra"
-        >
-            <div class="card-body">
-                <h2>Lyra Stormwind</h2>
-                <div class="row g-4">
-                    <div class="col-12 col-lg-6">
-                        <h3>Character Information</h3>
-                        <table class="character-table">
-                            <tr>
-                                <th>Name</th>
-                                <td>Lyra Stormwind</td>
-                            </tr>
-                            <tr>
-                                <th>Race</th>
-                                <td>Human</td>
-                            </tr>
-                            <tr>
-                                <th>Class</th>
-                                <td>Ranger</td>
-                            </tr>
-                            <tr>
-                                <th>Level</th>
-                                <td>4</td>
-                            </tr>
-                            <tr>
-                                <th>Background</th>
-                                <td>Outlander</td>
-                            </tr>
-                            <tr>
-                                <th>Alignment</th>
-                                <td>Chaotic Good</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <h3>Ability Scores</h3>
-                        <table class="character-table">
-                            <tr>
-                                <th>Strength</th>
-                                <td>13</td>
-                            </tr>
-                            <tr>
-                                <th>Dexterity</th>
-                                <td>17</td>
-                            </tr>
-                            <tr>
-                                <th>Constitution</th>
-                                <td>14</td>
-                            </tr>
-                            <tr>
-                                <th>Intelligence</th>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <th>Wisdom</th>
-                                <td>15</td>
-                            </tr>
-                            <tr>
-                                <th>Charisma</th>
-                                <td>12</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <h3>Equipment</h3>
-                        <ul>
-                            <li>Longbow</li>
-                            <li>Shortsword</li>
-                            <li>Explorer's pack</li>
-                            <li>Leather armor</li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <h3>Backstory</h3>
-                        <p>
-                            Lyra grew up travelling between small villages and forests.
-                            She learned to survive in the wilderness and became an
-                            experienced tracker.
-                        </p>
-                        <p>
-                            She now travels with adventurers while searching for a
-                            mysterious creature that has been appearing near her homeland.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </article>
-        <article
-                class="character card"
-                data-character="theron"
-        >
-            <div class="card-body">
-                <h2>Theron Ironhand</h2>
-                <div class="row g-4">
-                    <div class="col-12 col-lg-6">
-                        <h3>Character Information</h3>
-                        <table class="character-table">
-                            <tr>
-                                <th>Name</th>
-                                <td>Theron Ironhand</td>
-                            </tr>
-                            <tr>
-                                <th>Race</th>
-                                <td>Dwarf</td>
-                            </tr>
-                            <tr>
-                                <th>Class</th>
-                                <td>Fighter</td>
-                            </tr>
-                            <tr>
-                                <th>Level</th>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <th>Background</th>
-                                <td>Soldier</td>
-                            </tr>
-                            <tr>
-                                <th>Alignment</th>
-                                <td>Lawful Good</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <h3>Ability Scores</h3>
-                        <table class="character-table">
-                            <tr>
-                                <th>Strength</th>
-                                <td>18</td>
-                            </tr>
-                            <tr>
-                                <th>Dexterity</th>
-                                <td>12</td>
-                            </tr>
-                            <tr>
-                                <th>Constitution</th>
-                                <td>17</td>
-                            </tr>
-                            <tr>
-                                <th>Intelligence</th>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <th>Wisdom</th>
-                                <td>13</td>
-                            </tr>
-                            <tr>
-                                <th>Charisma</th>
-                                <td>9</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <h3>Equipment</h3>
-                        <ul>
-                            <li>Battleaxe</li>
-                            <li>Shield</li>
-                            <li>Chain mail</li>
-                            <li>Explorer's pack</li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <h3>Backstory</h3>
-                        <p>
-                            Theron served as a soldier in a dwarven stronghold before
-                            leaving his homeland to seek adventure.
-                        </p>
-                        <p>
-                            His experience in battle has made him a reliable protector
-                            of his companions and a skilled fighter.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </article>
+        </div>
     </section>
 </main>
 <footer>
@@ -418,30 +444,11 @@
     </p>
 </footer>
 
-<!-- Character filter -->
-<script>
-    const characterSelect = document.getElementById("character-select");
-    const characters = document.querySelectorAll(".character");
+<!-- Bootstrap JavaScript -->
+<script src="../common/js/bootstrap.bundle.min.js"></script>
 
-    characterSelect.addEventListener("change", function () {
-
-        const selectedCharacter = this.value;
-
-        characters.forEach(function (character) {
-
-            if (
-                selectedCharacter === "all" ||
-                character.dataset.character === selectedCharacter
-            ) {
-                character.style.display = "";
-            } else {
-                character.style.display = "none";
-            }
-
-        });
-
-    });
-</script>
+<!-- Project JavaScript -->
+<script src="./js/student2.js"></script>
 
 </body>
 </html>
