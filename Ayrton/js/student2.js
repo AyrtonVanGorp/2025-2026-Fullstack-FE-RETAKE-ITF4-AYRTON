@@ -1,4 +1,4 @@
-const API_URL = "https://2026-fullstack-retake-ayrton-van-gorp-pcblnjevo.vercel.app";
+const API_URL = "https://2026-fullstack-retake-ayrton-van-go.vercel.app";
 
 const characterSelect = document.getElementById("character-select");
 const charactersContainer = document.getElementById("characters");
