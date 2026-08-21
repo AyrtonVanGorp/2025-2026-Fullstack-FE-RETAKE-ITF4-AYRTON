@@ -1,7 +1,10 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://2026-fullstack-retake-ayrton-van-gorp-pcblnjevo.vercel.app";
 
 const characterSelect = document.getElementById("character-select");
 const charactersContainer = document.getElementById("characters");
+const characterForm = document.getElementById("character-form");
+
+console.log("student2.js is geladen");
 
 
 function showLoading(message) {
@@ -10,6 +13,7 @@ function showLoading(message) {
             <div class="spinner-border text-warning" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
+
             <p class="mt-3">${message}</p>
         </div>
     `;
@@ -25,7 +29,20 @@ function showError(message) {
 }
 
 
+function showSuccess(message) {
+    charactersContainer.insertAdjacentHTML(
+        "afterbegin",
+        `
+        <div class="alert alert-success" role="alert">
+            <strong>Success:</strong> ${message}
+        </div>
+        `
+    );
+}
+
+
 function createCharacterCard(character) {
+
     const card = document.createElement("article");
 
     card.className = "character card";
@@ -38,10 +55,12 @@ function createCharacterCard(character) {
             <div class="row g-4">
 
                 <div class="col-12 col-lg-6">
+
                     <h3>Character Information</h3>
 
                     <table class="character-table">
                         <tbody>
+
                             <tr>
                                 <th>Name</th>
                                 <td>${character.name}</td>
@@ -66,16 +85,20 @@ function createCharacterCard(character) {
                                 <th>Alignment</th>
                                 <td>${character.alignment ?? "Unknown"}</td>
                             </tr>
+
                         </tbody>
                     </table>
+
                 </div>
 
 
                 <div class="col-12 col-lg-6">
+
                     <h3>Ability Scores</h3>
 
                     <table class="character-table">
                         <tbody>
+
                             <tr>
                                 <th>Strength</th>
                                 <td>${character.strength ?? "Unknown"}</td>
@@ -105,16 +128,20 @@ function createCharacterCard(character) {
                                 <th>Charisma</th>
                                 <td>${character.charisma ?? "Unknown"}</td>
                             </tr>
+
                         </tbody>
                     </table>
+
                 </div>
 
 
                 <div class="col-12 col-lg-6">
+
                     <h3>Other Stats</h3>
 
                     <table class="character-table">
                         <tbody>
+
                             <tr>
                                 <th>Perception</th>
                                 <td>${character.perception ?? "Unknown"}</td>
@@ -129,29 +156,36 @@ function createCharacterCard(character) {
                                 <th>Hit Points</th>
                                 <td>${character.hit_points ?? "Unknown"}</td>
                             </tr>
+
                         </tbody>
                     </table>
+
                 </div>
 
 
                 <div class="col-12 col-lg-6">
+
                     <h3>Equipment</h3>
 
                     <p>
                         ${character.equipment ?? "No equipment listed."}
                     </p>
+
                 </div>
 
 
                 <div class="col-12">
+
                     <h3>Backstory</h3>
 
                     <p>
                         ${character.backstory ?? "No backstory available."}
                     </p>
+
                 </div>
 
             </div>
+
         </div>
     `;
 
@@ -169,17 +203,22 @@ async function loadAllCharacters() {
 
     try {
 
+        console.log("GET all characters");
+
         const response = await fetch(
             `${API_URL}/characters/`
         );
 
         if (!response.ok) {
+
             throw new Error(
                 `Server returned status ${response.status}`
             );
         }
 
         const characters = await response.json();
+
+        console.log("Characters received:", characters);
 
         charactersContainer.innerHTML = "";
 
@@ -203,7 +242,6 @@ async function loadAllCharacters() {
             const card = createCharacterCard(character);
 
             charactersContainer.appendChild(card);
-
 
             const option = document.createElement("option");
 
@@ -237,6 +275,8 @@ async function loadCharacterByName(name) {
 
     try {
 
+        console.log("GET character:", name);
+
         const response = await fetch(
             `${API_URL}/characters/search?name=${encodeURIComponent(name)}`
         );
@@ -244,7 +284,10 @@ async function loadCharacterByName(name) {
         if (!response.ok) {
 
             if (response.status === 404) {
-                throw new Error("Character not found.");
+
+                throw new Error(
+                    "Character not found."
+                );
             }
 
             throw new Error(
@@ -253,6 +296,8 @@ async function loadCharacterByName(name) {
         }
 
         const character = await response.json();
+
+        console.log("Character received:", character);
 
         charactersContainer.innerHTML = "";
 
@@ -275,7 +320,7 @@ async function loadCharacterByName(name) {
 
 
 /*
- * Character selection
+ * Character selector
  */
 if (characterSelect) {
 
@@ -299,9 +344,218 @@ if (characterSelect) {
 
 
 /*
- * Load all characters when the page opens
+ * POST REQUEST
+ * Create a new character
  */
-if (charactersContainer && characterSelect) {
+if (characterForm) {
+
+    characterForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+            console.log("FORM SUBMIT DETECTED");
+
+            const submitButton =
+                characterForm.querySelector(
+                    'button[type="submit"]'
+                );
+
+            submitButton.disabled = true;
+            submitButton.textContent = "Creating...";
+
+
+            const formData =
+                new FormData(characterForm);
+
+
+            const characterData = {
+
+                character: {
+
+                    name: formData.get("name"),
+
+                    race: formData.get("race"),
+
+                    class: formData.get("class"),
+
+                    level: Number(
+                        formData.get("level")
+                    ),
+
+                    alignment:
+                        formData.get("alignment"),
+
+                    equipment:
+                        formData.get("equipment"),
+
+                    backstory:
+                        formData.get("backstory")
+                },
+
+
+                stats: {
+
+                    name: formData.get("name"),
+
+                    strength: Number(
+                        formData.get("strength")
+                    ),
+
+                    dexterity: Number(
+                        formData.get("dexterity")
+                    ),
+
+                    constitution: Number(
+                        formData.get("constitution")
+                    ),
+
+                    intelligence: Number(
+                        formData.get("intelligence")
+                    ),
+
+                    wisdom: Number(
+                        formData.get("wisdom")
+                    ),
+
+                    charisma: Number(
+                        formData.get("charisma")
+                    ),
+
+                    perception: Number(
+                        formData.get("perception")
+                    ),
+
+                    armor_class: Number(
+                        formData.get("armor_class")
+                    ),
+
+                    hit_points: Number(
+                        formData.get("hit_points")
+                    )
+                }
+            };
+
+
+            console.log(
+                "Data that will be sent:",
+                characterData
+            );
+
+
+            try {
+
+                const response = await fetch(
+                    `${API_URL}/characters/`,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify(
+                                characterData
+                            )
+                    }
+                );
+
+
+                console.log(
+                    "POST response status:",
+                    response.status
+                );
+
+
+                if (!response.ok) {
+
+                    let errorMessage =
+                        "Character could not be created.";
+
+                    try {
+
+                        const errorData =
+                            await response.json();
+
+                        console.error(
+                            "Backend error:",
+                            errorData
+                        );
+
+                        if (errorData.detail) {
+
+                            errorMessage =
+                                errorData.detail;
+                        }
+
+                    } catch (error) {
+
+                        console.error(
+                            "Could not read error response:",
+                            error
+                        );
+                    }
+
+                    throw new Error(
+                        errorMessage
+                    );
+                }
+
+
+                const result =
+                    await response.json();
+
+
+                console.log(
+                    "Character created:",
+                    result
+                );
+
+
+                characterForm.reset();
+
+
+                showSuccess(
+                    `Character "${result.name}" was created successfully!`
+                );
+
+
+                await loadAllCharacters();
+
+
+            } catch (error) {
+
+                console.error(
+                    "Error creating character:",
+                    error
+                );
+
+                showError(
+                    `The character could not be created: ${error.message}`
+                );
+
+            } finally {
+
+                submitButton.disabled = false;
+
+                submitButton.textContent =
+                    "Create Character";
+            }
+        }
+    );
+}
+
+
+/*
+ * Load characters when page opens
+ */
+if (
+    charactersContainer &&
+    characterSelect
+) {
 
     loadAllCharacters();
 }
